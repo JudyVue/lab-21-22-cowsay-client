@@ -1,0 +1,10 @@
+
+$app-bg: #FF7F50;
+$app-font-color: #F0FFF0;
+$app-font: "Trebuchet MS", Helvetica, sans-serif;
+
+body {
+  background-color: $app-bg;
+  font: 100% $app-font;
+  color: $app-font-color;
+}
