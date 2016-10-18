@@ -4,21 +4,46 @@
     <title>Cowsay Client</title>
   </head>
   <body>
-    <section ng-controller="CowsayController">
-    <h1>{{cowsayCtrl.title}}</h1>
-      <input type="text" ng-model="cowsayCtrl.text">
+    <nav ng-controller="NavController as navCtrl">
+      <ul>
+        </i><li ng-repeat="navItem in navCtrl.routes">
+          <a ng-href="{{navItem.url}}">{{navItem.name}}</a>
+        </li>
 
-      <button ng-click="cowsayCtrl.helloClick(cowsayCtrl.text)"> click me </button>
+      </ul>
+    </nav>
 
-      <pre>
+    <section ng-controller="CowsayController as cowsayCtrl"
+    ng-init="cowsayCtrl.currentCow='default'">
+    <h1 ng-class="{'bold-font': !cowsayCtrl.text}">{{cowsayCtrl.title}}</h1>
+    <form ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
+    novalidate
+    name="cowsayForm"
+    ng-class="{'red-font': cowsayForm.$invalid}">
+
+      <i class="fa fa-hand-o-right" aria-hidden="true">
+      <input type="text" placeholder="Enter Text Here" ng-model="cowsayCtrl.text" required ng-minlength="4" ng-class="{'red-font': !cowsayCtrl.text}">
+
+      <select ng-model="cowsayCtrl.currentCow" >
+        <option ng-repeat="cowfile in cowsayCtrl.cowfiles" value="{{cowfile}}">
+          {{cowfile}}
+        </option>
+      </select>
+
+      <button type="button" ng-click="cowsayCtrl.undo()">Undo</button>
+      <button type="submit">Speak</button>
+    </form>
+
+    <pre>
         {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
-      </pre>
-    </section>
+    </pre>
 
-    <section ng-controller="CowsayController">
-    <h1>{{cowsayCtrl.title}}</h1>
-      <input type="text" ng-model="cowsayCtrl.coolbeans">
-      <p>{{cowsayCtrl.coolbeans}}</p>
-    </section>
+    <h3 ng-if="!cowsayCtrl.spoken" red-font="{'italic-font': !cowsayCtrl.text}">THIS WILL BE REMOVED FROM DOM WHEN SPEAK IS CLICKED</h3>
+    <pre ng-show="cowsayCtrl.spoken" >
+      {{cowsayCtrl.spoken}}
+    </pre>
+
+    <p ng-hide="cowsayCtrl.spoken">Waiting for you to speak</p>
+
   </body>
 </html>

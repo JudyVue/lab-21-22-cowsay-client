@@ -1,3 +1,4 @@
+@import "~font-awesome/scss/font-awesome.scss";
 
 $app-bg: #FF7F50;
 $app-font-color: #F0FFF0;
@@ -7,4 +8,17 @@ body {
   background-color: $app-bg;
   font: 100% $app-font;
   color: $app-font-color;
+}
+
+.red-font {
+  color: red;
+}
+
+.italic-font {
+  font-style: italic;
+}
+
+.bold-font {
+  font-weight: bold;
+  color: black;
 }
