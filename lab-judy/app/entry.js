@@ -19,6 +19,7 @@ function CowsayController($log){
 
   this.title = 'Moooo';
   this.history = [];
+
   cowsay.list( (err, cowfiles) => {
     this.cowfiles = cowfiles;
     this.currentCow = this.cowfiles[0];
@@ -38,7 +39,8 @@ function CowsayController($log){
   };
   this.undo = function(){
     $log.debug('this.undo()');
-    this.spoken = this.history.pop() || '';
+    this.history.pop(); //get rid of the current thing
+    this.spoken = this.history.pop() || ''; //set the last thing
   };
 
 }
