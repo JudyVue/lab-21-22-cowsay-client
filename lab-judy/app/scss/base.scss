@@ -19,6 +19,10 @@ select {
   color: $brand-black;
 }
 
+pre {
+  background-color: $brand-primary;
+}
+
 .red-font {
   color: $brand-error;
 }
