@@ -1,17 +1,26 @@
-@import "~font-awesome/scss/font-awesome.scss";
+@import "_vendor";
+@import "_theme";
 
-$app-bg: #FF7F50;
+
 $app-font-color: #F0FFF0;
 $app-font: "Trebuchet MS", Helvetica, sans-serif;
 
 body {
-  background-color: $app-bg;
-  font: 100% $app-font;
+  background-color: $brand-primary;
+  font: $app-font;
   color: $app-font-color;
 }
 
+input {
+  color: $brand-black;
+}
+
+select {
+  color: $brand-black;
+}
+
 .red-font {
-  color: red;
+  color: $brand-error;
 }
 
 .italic-font {
@@ -20,5 +29,5 @@ body {
 
 .bold-font {
   font-weight: bold;
-  color: black;
+  color: $brand-black;
 }

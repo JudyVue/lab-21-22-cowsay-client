@@ -24,7 +24,7 @@
       <i class="fa fa-hand-o-right" aria-hidden="true">
       <input type="text" placeholder="Enter Text Here" ng-model="cowsayCtrl.text" required ng-minlength="4" ng-class="{'red-font': !cowsayCtrl.text}">
 
-      <select ng-model="cowsayCtrl.currentCow" >
+      <select ng-model="cowsayCtrl.currentCow">
         <option ng-repeat="cowfile in cowsayCtrl.cowfiles" value="{{cowfile}}">
           {{cowfile}}
         </option>

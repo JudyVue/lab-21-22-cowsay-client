@@ -6,8 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
   output: {
-    filename: 'bundle.js',
     path: 'build',
+    filename: 'bundle.js',
   },
   plugins: [
     new HTMLPlugin({
@@ -15,6 +15,9 @@ module.exports = {
     }),
     new ExtractTextPlugin('bundle.css'),
   ],
+  sassLoader: {
+    includePaths: [`${__dirname}/app/scss/lib`],
+  },
   module: {
     loaders: [
       {
